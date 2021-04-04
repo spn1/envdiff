@@ -14,14 +14,25 @@ class Diff():
     def convert_to_dict(self, contents, delimiter):
         return dict(line.split(delimiter) for line in contents)
 
+    def get_shared_dict(self, shared_keys):
+        pass
+
     def diff(self):
         # Convert file contents to Dictionaries
         left_dict = self.convert_to_dict(self.left, '=')
         right_dict = self.convert_to_dict(self.right, '=')
 
         # Find shared & unique keys in each Dictionary
-        self.find_shared_keys(left_dict, right_dict)
-        self.find_unique_keys(left_dict, right_dict)
+        shared_keys = self.find_distinct_shared_keys(left_dict, right_dict)
+        unique_keys = self.find_unique_keys(left_dict, right_dict)
+
+        # Attach values to shared & unique keys
+        # shared = { 'key': { 'left_value', 'right_value' }, ... }
+        # unique = { 'left': { 'key': 'value', ... }, 'right': { 'key': 'value', ...} }
+        shared_list = { key: { 'left': left_dict[key], 'right': right_dict[key] } for key in shared_keys }
+        unique_list = { 'left': { key: left_dict[key] for key in unique_keys['left']}, 'right': { key: right_dict[key] for key in unique_keys['right'] } }
+
+        return shared_list, unique_list
 
     def find_unique_keys(self, left_dict, right_dict):
         # Convert list of keys to Sets
@@ -32,9 +43,9 @@ class Diff():
         left_unique = left_keys - right_keys
         right_unique = right_keys - left_keys
 
-        return { 'left': left_unique, 'right': right_unique }
+        return { 'left': list(left_unique), 'right': list(right_unique) }
 
-    def find_shared_keys(self, left_dict, right_dict):
+    def find_distinct_shared_keys(self, left_dict, right_dict):
         # Convert list of keys to Sets
         left_keys = set(left_dict.keys())
         right_keys = set(right_dict.keys())
@@ -44,6 +55,3 @@ class Diff():
 
         # Find out which shared keys contain different values between the Dictionaries
         return [ key for key in shared_keys if left_dict[key] != right_dict[key] ]
-
-        
-
