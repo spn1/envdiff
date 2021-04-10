@@ -8,7 +8,12 @@ Highlight differences between environment variables in .env files. This tool wil
 
 ### Usage
 
-Run the following command with Python 3:
+ - Clone the repo to your local machine
 
-```python3 ./src/main.py <file_one> <file_two>```
+ - Install the dependencies from `requirements.txt`
 
+    ```pip install -r requirements.txt```
+
+ - Run the following command with Python 3:
+
+    ```python3 ./src/main.py <file_one> <file_two>```
