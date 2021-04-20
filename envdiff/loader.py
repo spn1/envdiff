@@ -1,7 +1,4 @@
 class Loader():
-    def __init__(self):
-        pass
-
     def read_file_contents(self, filename):
         """
         Reads and Returns the contents of a file
