@@ -1,1 +1,0 @@
-MAX_WIDTH = 20

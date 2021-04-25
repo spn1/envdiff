@@ -1,12 +1,8 @@
 from rich import print
 from rich.console import Console
 from rich.table import Table
-from rich.table import Column
 from rich.style import Style
-from rich.style import Color
 from rich import box
-
-from constants import MAX_WIDTH
 
 class Logger():
     def __init__(self):

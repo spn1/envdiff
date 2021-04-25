@@ -1,6 +1,6 @@
 from sys import argv
-from diff import Diff
-from logger import Logger
+from envdiff.diff import Diff
+from envdiff.logger import Logger
 
 if __name__ == '__main__':
     try:

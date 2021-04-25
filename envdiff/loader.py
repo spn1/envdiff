@@ -5,19 +5,13 @@ class Loader():
         :filename, The name of the file to be read
         :return, An array container each line in the file, trimmed to remove comments and newlines
         """
+        # Read lines from file
         with open(filename, mode='r', encoding='utf-8') as file:
             contents = file.read().splitlines()
 
+        # Removes empty lines
         contents = list(filter(lambda item: item, contents))
 
-        return self.trim(contents)
-
-    def trim(self, contents):
-        """ 
-        Gets rid of unnecesary lines from file contents and returns the result
-        :contents, The contents of the file
-        :return, the filtered file contents
-        """
         return list(filter(self.line_filter, contents))
 
     def line_filter(self, line):

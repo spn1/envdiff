@@ -1,7 +1,4 @@
-from loader import Loader
-from pprint import PrettyPrinter
-
-pp = PrettyPrinter(indent=4)
+from envdiff.loader import Loader
 
 class Diff():
     def __init__(self, left_file, right_file):
@@ -13,9 +10,6 @@ class Diff():
 
     def convert_to_dict(self, contents, delimiter):
         return dict(line.split(delimiter) for line in contents)
-
-    def get_shared_dict(self, shared_keys):
-        pass
 
     def diff(self):
         # Convert file contents to Dictionaries
