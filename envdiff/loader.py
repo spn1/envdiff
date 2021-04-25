@@ -12,9 +12,9 @@ class Loader():
         # Removes empty lines
         contents = list(filter(lambda item: item, contents))
 
-        return list(filter(self.line_filter, contents))
+        return list(filter(self.comment_filter, contents))
 
-    def line_filter(self, line):
+    def comment_filter(self, line):
         """
         Determines which lines in the file to filter out (comments)
         :line, The line to be filtered
