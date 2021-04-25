@@ -18,4 +18,14 @@ While it is true that you can use a command like `diff` to compare two env files
 
  - Run the following command with Python 3:
 
-    ```python3 ./src/main.py <file_one> <file_two>```
+    ```python3 ./main.py <file_one> <file_two>```
+
+### Test
+
+ - Install the dependencies from `requirements.txt`
+
+    ```pip install -r requirements.txt```
+
+ - Run the following command
+
+    ```python -m unittest discover```

@@ -5,10 +5,10 @@ from envdiff.logger import Logger
 if __name__ == '__main__':
     try:
         args = argv[1:3]
-        
+
         logger = Logger()
         logger.print_title()
-        logger.print_args(args)        
+        logger.print_args(args)
 
         differ = Diff(left_file=args[0], right_file=args[1])
         shared, unique = differ.diff()
