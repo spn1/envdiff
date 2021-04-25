@@ -8,7 +8,7 @@ class TestLoader(unittest.TestCase):
 
     def test_opens_file(self):
         # Mock python open function?
-        expected = ['URL=https://www.test.com/']
+        expected = ['URL=https://www.test.com/', 'FOO=BAR']
 
         result = self.loader.read_file_contents('test/fixtures/.env-simple')
 
