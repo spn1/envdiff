@@ -91,7 +91,7 @@ class Logger():
         right_table = Table(title=f'Unique {right_filename} Environment Variables', box=box.ROUNDED, header_style=self.header_style, expand=True)
         right_table.add_column('Variable', justify='right')
         right_table.add_column('Value', style='red')
-        
+
         for k, v in unique_right:
             right_table.add_row(k, v, style=self.right_style)
 

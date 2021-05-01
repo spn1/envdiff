@@ -22,7 +22,6 @@ class TestLoader(unittest.TestCase):
         self.assertEqual(result, expected)
         self.assertFalse(result.count(''))
 
-    @unittest.expectedFailure
     def test_does_not_include_comments_that_follow_values(self):
         expected = ['FOO=BAR']
 
