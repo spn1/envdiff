@@ -12,7 +12,13 @@ class Loader():
         # Removes empty lines
         contents = list(filter(lambda item: item, contents))
 
-        return list(filter(self.comment_filter, contents))
+        # Remove commented out lines
+        contents = list(filter(self.comment_filter, contents))
+
+        # Trim lines with comments at the end
+        contents = [ line.split(' #')[0] for line in contents ]
+
+        return contents
 
     def comment_filter(self, line):
         """
