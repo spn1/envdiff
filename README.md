@@ -29,3 +29,7 @@ While it is true that you can use a command like `diff` to compare two env files
  - Run the following command
 
     ```python -m unittest discover```
+
+### To do
+ - [x] Filter out mid-line comments in addition to full-line comments
+ - [ ] Allow different comment characters and key-value separators via command-line arguments
