@@ -19,6 +19,14 @@ class TestDiff(unittest.TestCase):
 
         self.assertEqual(result, { 'FOO': 'BAR' })
 
+    def test_convert_to_dict_with_alternate_separator(self):
+        contents = ['FOO: BAR']
+
+        self.differ = Diff('test/fixtures/.env-simple', 'test/fixtures/.env-simple')
+        result = self.differ.convert_to_dict(contents, ': ')
+
+        self.assertEqual(result, { 'FOO': 'BAR' })
+
     def test_find_unique_keys(self):
         left = { 'FOO': 'BAR', 'LEFT': 'parsnip' }
         right = { 'FOO': 'BAR', 'RIGHT': 'persimmon' }
