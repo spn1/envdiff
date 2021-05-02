@@ -9,7 +9,7 @@ This tool will compare the two files provided to it and:
 - Determine the **shared** key-value pairs between the two files
 - Display all **unique** key-value pairs in each file, as well as all **shared** key-value pairs where the values differ between each file
 
-### Usage
+## Usage
 
  - Clone the repo to your local machine
 
@@ -28,7 +28,7 @@ You can also customize how the tool interprets your file, as some env files migh
  - `-c "<string>"` - `<string>` will be used to determine if a line or substring is a comment or not
  - `-s "<string>"` - `<string>` will be used to separate key-value pairs within each line
 
-### Test
+## Test
 
  - Install the dependencies from `requirements.txt`
 
@@ -38,6 +38,8 @@ You can also customize how the tool interprets your file, as some env files migh
 
     ```python -m unittest discover```
 
-### To do
+## To do
  - [x] Filter out mid-line comments in addition to full-line comments
- - [ ] Allow different comment characters and key-value separators via command-line arguments
+ - [x] Allow different comment characters and key-value separators via command-line arguments
+ - [ ] Release as Python package (?)
+ - [ ] Release as command-line installable
