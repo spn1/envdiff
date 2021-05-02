@@ -17,7 +17,7 @@ class TestLoader(unittest.TestCase):
     def test_does_not_include_commented_lines_or_new_lines(self):
         expected = ['KEY=VALUE']
 
-        result = self.loader.read_file_contents('test/fixtures/.env-with-comments')
+        result = self.loader.get_lines_of_interest('test/fixtures/.env-with-comments')
 
         self.assertEqual(result, expected)
         self.assertFalse(result.count(''))
@@ -25,7 +25,7 @@ class TestLoader(unittest.TestCase):
     def test_does_not_include_comments_that_follow_values(self):
         expected = ['FOO=BAR']
 
-        result = self.loader.read_file_contents('test/fixtures/.env-with-inline-comment')
+        result = self.loader.get_lines_of_interest('test/fixtures/.env-with-inline-comment')
 
         self.assertEqual(result, expected)
 
@@ -35,6 +35,15 @@ class TestLoader(unittest.TestCase):
 
         self.assertEqual(self.loader.comment_filter(test_line), True)
         self.assertEqual(self.loader.comment_filter(test_comment), False)
+
+    def test_comment_filter_with_custom_comment_character(self):
+        test_line = 'ENDPOINT=https://www.google.com/'
+        test_comment = '// This is a comment'
+
+        test_loader = Loader(comment='//')
+
+        self.assertEqual(test_loader.comment_filter(test_line), True)
+        self.assertEqual(test_loader.comment_filter(test_comment), False)
 
     def tearDown(self):
         self.loader = None
