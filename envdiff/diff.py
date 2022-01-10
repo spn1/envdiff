@@ -24,7 +24,7 @@ class Diff():
         :delimiter, The character(s) to separate the key-value pairs by
         :return, A dictionary of the key-value pairs
         """
-        return dict(line.split(delimiter) for line in lines)
+        return dict(line.split(delimiter, 1) for line in lines)
 
     def diff(self):
         """
